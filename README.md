@@ -1,6 +1,6 @@
 # Project Asgard
 
-This repo contains all resources to build and execute the Project Asgard PoC.
+This repository contains all resources needed to build the Project Asgard PoC environment.
 
 ## TL;DR
 
