@@ -1,2 +1,7 @@
-# project-asgard
-contains all sources related to project asgard
+# Project Asgard
+
+This repo contains all resources to build and execute the Project Asgard PoC.
+
+## TL;DR
+
+ToDo

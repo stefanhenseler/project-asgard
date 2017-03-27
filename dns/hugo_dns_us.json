@@ -1,0 +1,20 @@
+{
+  "Comment": "Hugo DNS",
+  "Changes": [
+    {
+      "Action": "CREATE",
+      "ResourceRecordSet": {
+        "Name": "hugo.DOMAIN_NAME",
+        "Type": "CNAME",
+        "Region": "us-east-1",
+        "TTL": 300,
+        "SetIdentifier": "us-east-1",
+        "ResourceRecords": [
+          {
+            "Value": "HUGO_APP_ELB_US"
+          }
+        ]
+      }
+    }
+  ]
+}
