@@ -39,6 +39,12 @@ kubectl config use-context federation
 kubefed join eu --host-cluster-context=$US_CLUSTER_DNS_NAME --cluster-context=$EU_CLUSTER_DNS_NAME --secret-name=eusecret
 kubefed join us --host-cluster-context=$US_CLUSTER_DNS_NAME --cluster-context=$US_CLUSTER_DNS_NAME --secret-name=ussecret
 
+sleep 30
+
+## Deploy Monitoring
+kubectl --context $US_CLUSTER_DNS_NAME create -f https://raw.githubusercontent.com/kubernetes/kops/master/addons/monitoring-standalone/v1.2.0.yaml
+kubectl --context $EU_CLUSTER_DNS_NAME create -f https://raw.githubusercontent.com/kubernetes/kops/master/addons/monitoring-standalone/v1.2.0.yaml
+
 ## Deploy Hugo
 kubectl --context federation create -f ./k8s
 
