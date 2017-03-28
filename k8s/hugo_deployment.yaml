@@ -13,6 +13,6 @@ spec:
         fsGroup: 99
       containers:
         - name: hugo
-          image: synax/project-asgard-deploy:1.0
+          image: synax/project-asgard-hugo:1.0
           ports:
             - containerPort: 80

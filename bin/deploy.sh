@@ -26,14 +26,14 @@ kops create cluster --name $EU_CLUSTER_DNS_NAME --master-size=t2.micro --node-si
 kops update cluster $EU_CLUSTER_DNS_NAME --yes
 
 echo "Clusters are starting..."
-sleep 300
+sleep 420
 
 ## Federation
 kubectl config use-context $US_CLUSTER_DNS_NAME
 kubefed init federation --host-cluster-context=$US_CLUSTER_DNS_NAME --dns-provider=aws-route53 --dns-zone-name=$dns_name
 
 echo "Federation starting..."
-sleep 300
+sleep 360
 
 kubectl config use-context federation
 kubefed join eu --host-cluster-context=$US_CLUSTER_DNS_NAME --cluster-context=$EU_CLUSTER_DNS_NAME --secret-name=eusecret
@@ -43,7 +43,7 @@ kubefed join us --host-cluster-context=$US_CLUSTER_DNS_NAME --cluster-context=$U
 kubectl --context federation create -f ./k8s
 
 echo "Hugo application is starting..."
-sleep 30
+sleep 120
 
 ## DNS Records
 export HUGO_APP_ELB_US=$(kubectl --context=$US_CLUSTER_DNS_NAME get services/hugo-svc --template="{{range .status.loadBalancer.ingress}} {{.hostname}} {{end}}")
